@@ -51,5 +51,3 @@ volumes:
   db_data:
   wordpress:
   nginx:
-networks:
-  docfox-wordpress-network:

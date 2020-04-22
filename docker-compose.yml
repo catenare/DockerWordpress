@@ -35,5 +35,3 @@ services:
 volumes:
   wordpress:
   nginx:
-networks:
-  docfox-wordpress-network:
