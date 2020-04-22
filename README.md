@@ -6,6 +6,8 @@
 * [Introduction to Wordpress and Composer](https://www.pmg.com/blog/composer-and-wordpress/?cn-reloaded=1)
 * [wordpress with Composer Support](https://github.com/johnpbloch/wordpress)
 * [WordPress Packagist](https://wpackagist.org/) - WordPress Packages compatible with Composer
+* [Plugin to Store Uploads on Amazon S3](https://github.com/humanmade/S3-Uploads)
+* [Cloudinary WordPress Integration](https://cloudinary.com/documentation/wordpress_integration)
 
 ## Instructions
 * Create **.env** file. Look at example.env
