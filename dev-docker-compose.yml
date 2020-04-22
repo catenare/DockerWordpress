@@ -1,0 +1,55 @@
+version: "3"
+services:
+  web:
+    image: nginx:1.17
+    depends_on:
+      - wordpress
+      - db
+    ports:
+      - "7000:80"
+    volumes:
+      - wordpress:/var/www/html
+      - nginx:/etc/nginx/conf.d
+  wordpress:
+    image: paseo:wordpress
+    build:
+      context: .
+      args:
+        GITHUB_AUTH: ${COMPOSER_AUTH}
+    container_name: wordpress
+    depends_on:
+      - db
+    volumes:
+      - wordpress:/var/www/html
+      - sockets:/var/run/mysqld
+      - nginx:/nginx
+    environment:
+      - WORDPRESS_DB_HOST=${WORDPRESS_DB_HOST}
+      - WORDPRESS_DB_USER=${WORDPRESS_DB_USER}
+      - WORDPRESS_DB_PASSWORD=${WORDPRESS_DB_PASSWORD}
+      - WORDPRESS_DB_NAME=${WORDPRESS_DB_NAME}
+      - AUTH_KEY=${AUTH_KEY}
+      - SECURE_AUTH_KEY=${SECURE_AUTH_KEY}
+      - LOGGED_IN_KEY=${LOGGED_IN_KEY}
+      - NONCE_KEY=${NONCE_KEY}
+      - AUTH_SALT=${AUTH_SALT}
+      - SECURE_AUTH_SALT=${SECURE_AUTH_SALT}
+      - LOGGED_IN_SALT=${LOGGED_IN_SALT}
+      - NONCE_SALT=${NONCE_SALT}
+      - MY_KEY=${MY_KEY}
+      - WP_DEBUG=${WP_DEBUG}
+  db:
+    image: mysql:5
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+      - sockets:/var/run/mysqld
+volumes:
+  sockets:
+  db_data:
+  wordpress:
+  nginx:
