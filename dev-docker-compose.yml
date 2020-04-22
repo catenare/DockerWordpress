@@ -11,11 +11,9 @@ services:
       - wordpress:/var/www/html
       - nginx:/etc/nginx/conf.d
   wordpress:
-    image: paseo:wordpress
+    image: docfox:wordpress
     build:
       context: .
-      args:
-        GITHUB_AUTH: ${COMPOSER_AUTH}
     container_name: wordpress
     depends_on:
       - db
@@ -53,3 +51,5 @@ volumes:
   db_data:
   wordpress:
   nginx:
+networks:
+  docfox-wordpress-network:

@@ -1,3 +1,5 @@
 .gitignore
 .env
-.env.docker
+docker-compose.yml
+dev-docker-compose.yml
+.dockerignore
