@@ -1,6 +1,6 @@
 version: "3"
 services:
-  web:
+  nginx:
     image: nginx:1.17
     ports:
       - "80:80"
@@ -18,7 +18,7 @@ services:
         awslogs-stream-prefix: ecs
     networks:
       ecs-local-network: null
-  docfox-wordpress:
+  wordpress:
     environment:
       WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
       WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
