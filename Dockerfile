@@ -1,8 +1,5 @@
 FROM php:7.2-fpm
 
-RUN mkdir /nginx
-COPY nginx.conf  /nginx/default.conf
-
 RUN set -ex; \
   \
   savedAptMark="$(apt-mark showmanual)"; \
@@ -82,6 +79,9 @@ RUN set -ex; \
   apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
   rm -rf /var/lib/apt/lists/*; \
   composer clearcache;
+
+RUN mkdir /nginx
+COPY nginx.conf  /nginx/default.conf
 
 COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
