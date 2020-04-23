@@ -8,6 +8,9 @@
 * [WordPress Packagist](https://wpackagist.org/) - WordPress Packages compatible with Composer
 * [Plugin to Store Uploads on Amazon S3](https://github.com/humanmade/S3-Uploads)
 * [Cloudinary WordPress Integration](https://cloudinary.com/documentation/wordpress_integration)
+### AWS Services
+* [Amazon Fargate](https://aws.amazon.com/fargate/) - Docker container service
+* [Amazon Aurora Serverless](https://aws.amazon.com/rds/aurora/serverless/?nc=sn&loc=2&dn=6) - Database Service
 
 ## Instructions
 * Create **.env** file. Look at example.env
