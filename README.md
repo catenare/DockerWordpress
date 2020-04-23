@@ -1,6 +1,6 @@
 # Generic Wordpress Configuration using Docker
 * Uses **composer.json** to manage Wordpress as a package.
-* Wordpress site is hosted in containers.
+* Wordpress site is hosted on AWS in a container service.
 
 ## Resources
 * [Introduction to Wordpress and Composer](https://www.pmg.com/blog/composer-and-wordpress/?cn-reloaded=1)
@@ -24,6 +24,7 @@
 * Should see the Wordpress Admin install page.
 
 ### Deploy to Fargate Service
+* Need to create **AWS_ACCESS_KEY_ID** and **AWS_SECRET_ACCESS_KEY** secrets in Github Repo.
 * Repo contains aws.yml file for uploading image to Amazon ECR.
 
 
