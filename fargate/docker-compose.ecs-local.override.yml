@@ -1,5 +1,0 @@
-version: "3.4"
-services:
-  docfox-wordpress:
-    logging:
-      driver: json-file
