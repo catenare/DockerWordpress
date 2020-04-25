@@ -84,7 +84,7 @@ RUN set -ex; \
   composer clearcache;
 
 RUN mkdir /nginx
-COPY nginx.conf  /nginx/default.conf
+COPY nginx.conf  /etc/nginx/conf.d/default.conf
 
 COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]

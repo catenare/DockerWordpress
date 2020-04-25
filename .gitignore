@@ -86,4 +86,4 @@ site/sockets
 .env
 .env.docker
 database
-ecs/*.yml
+ecs/*
