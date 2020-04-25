@@ -1,4 +1,4 @@
-FROM php:7.2-fpm
+FROM php:7.4-fpm
 
 RUN set -ex; \
   \
@@ -6,16 +6,19 @@ RUN set -ex; \
   \
   apt-get update; \
   apt-get install -y --no-install-recommends\
-  libjpeg-dev\
-  libmagickwand-dev\
-  libpng-dev\
-  wget\
-  git\
-  unzip\
-  zip;\
+          libfreetype6-dev \
+          libjpeg62-turbo-dev \
+          libpng-dev \
+          libmagickwand-dev \
+          imagemagick \
+          wget\
+          git\
+          unzip\
+          libzip-dev \
+          zip;\
   \
-  docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr; \
-  docker-php-ext-install -j "$(noproc)" \
+  docker-php-ext-configure gd --with-freetype --with-jpeg \
+   && docker-php-ext-install -j$(nproc) gd \
   bcmath \
   exif \
   gd \
@@ -23,7 +26,7 @@ RUN set -ex; \
   opcache \
   zip \
   ; \
-  pecl install imagick-3.4.4; \
+  pecl install imagick; \
   docker-php-ext-enable imagick; \
   # reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies
   apt-mark auto '.*' > /dev/null; \

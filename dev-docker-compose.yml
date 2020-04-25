@@ -11,7 +11,7 @@ services:
       - wordpress:/var/www/html
       - nginx:/etc/nginx/conf.d
   wordpress:
-    image: docfox:wordpress
+    image: paseo:wordpress
     build:
       context: .
     container_name: wordpress
