@@ -83,10 +83,8 @@ RUN set -ex; \
   rm -rf /var/lib/apt/lists/*; \
   composer clearcache;
 
-RUN mkdir /nginx
-COPY nginx.conf  /etc/nginx/conf.d/default.conf
 
 COPY docker-entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["docker-entrypoint.sh"]
 EXPOSE 9000
+ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["php-fpm"]
