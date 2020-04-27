@@ -1,22 +1,13 @@
 version: "3"
 services:
   nginx:
-    image: nziswano:nginx
-    build:
-      context: .
-      dockerfile: Dockerfile-nginx
-    depends_on:
-      - wordpress
+    image: 338196870821.dkr.ecr.us-east-1.amazonaws.com/nziswano-nginx:7eb0611df2194cc234bdf567aa3e5ec9b3d42c47
     ports:
       - "80:80"
     volumes:
       - wordpress:/var/www/html
   wordpress:
-    image: nziswano:wordpress
-    build:
-      context: .
-      dockerfile: Dockerfile-wordpress
-    container_name: wordpress
+    image: 338196870821.dkr.ecr.us-east-1.amazonaws.com/nziswano-wordpress:7eb0611df2194cc234bdf567aa3e5ec9b3d42c47
     volumes:
        - wordpress:/var/www/html
     environment:
