@@ -88,3 +88,4 @@ site/sockets
 database
 ecs/*.yml
 ecs/*.json
+site/*
