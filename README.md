@@ -34,3 +34,4 @@
 ### Complete environment including MySQL Server as part of compose file.
   * Change **WORDPRESS_DB_HOST** in **.env** file to `WORDPRESS_DB_HOST=localhost:/var/run/mysqld/mysqld.sock`
   * `docker-compose -f dev-docker-compose.yml up` - Will build the local container and configure with NGINX and MySQL Server. Edit .env file accordingly.
+  * `docker-compose down --remove-orphans` - close down docker
